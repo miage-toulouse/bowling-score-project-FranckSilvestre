@@ -52,7 +52,7 @@ public class JeuTest {
     @Test
     public void testIsStrike() throws Exception {
         // Given: un jeu dont le nb de quilles tombees au premier lancer est égal à 10
-        Jeu jeu = new Jeu(10,0);
+        Jeu jeu = new Jeu();
         // Expected: le jeu est un strike
         assertTrue(jeu.isStrike());
 
@@ -62,8 +62,24 @@ public class JeuTest {
         assertFalse(jeu.isStrike());
     }
 
-
-
     // test de isSpare
+    @Test
+    public void testIsSpare() throws Exception {
+        // Given: un jeu dont la somme des quilles tombees est égal à 10
+        Jeu jeu = new Jeu(8,2);
+        // Expected: le jeu est un spare
+        assertTrue(jeu.isSpare());
+
+        // Given: un jeu dont la somme de quilles tombees est < 10
+        jeu = new Jeu(2,4);
+        // Expected: le jeu n'est pas un spare
+        assertFalse(jeu.isSpare());
+
+        // given: un strike
+        jeu = new Jeu();
+        // Expected: le jeu n'est pas un spare
+        assertFalse(jeu.isSpare());
+
+    }
 
 }
