@@ -48,9 +48,22 @@ public class JeuTest {
 
     }
 
+   // test de isStrike
+    @Test
+    public void testIsStrike() throws Exception {
+        // Given: un jeu dont le nb de quilles tombees au premier lancer est égal à 10
+        Jeu jeu = new Jeu(10,0);
+        // Expected: le jeu est un strike
+        assertTrue(jeu.isStrike());
+
+        // Given: un jeu dont le nb de quilles tombees au premier lancer est < 10
+        jeu = new Jeu(2,4);
+        // Expected: le jeu n'est pas un strike
+        assertFalse(jeu.isStrike());
+    }
+
+
+
     // test de isSpare
-
-    // test de isStrike
-
 
 }

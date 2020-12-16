@@ -21,7 +21,7 @@ public class Jeu {
     }
 
     public boolean isStrike() {
-        return true;
+        return nbQuillesTombeesLancer1 == 10 ;
     }
 
 }
